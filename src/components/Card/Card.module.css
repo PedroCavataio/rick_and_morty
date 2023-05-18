@@ -1,0 +1,66 @@
+.container{
+    border: 2px solid rgb(182, 255, 13);
+    background-color: hsl(0, 1%, 31%);
+    border-radius: 10px;
+    width: 170px;
+    padding: 10px;
+    box-shadow:  3px 3px rgb(4, 39, 63); 
+    margin: 20px;
+    margin-top: 50px;
+    transition: background-color 0.5s;
+}
+
+
+
+.container:hover {
+    background-color: rgb(7, 7, 7);
+    box-shadow:  7px 7px rgba(4, 39, 63, 0.671);
+    transition: background-color 0.7s; 
+}
+
+
+
+.image{
+    width: 170px;
+    border-radius: 80px;
+    border: 2px solid rgb(182, 255, 13);
+}
+
+.buttonContainer{
+    border: 50 px solid rgb(223, 196, 187);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonContainer button{
+    background-color: rgb(107, 131, 4);
+    color: rgb(227, 245, 71);
+    border-radius: 50px;
+    border: 0px;
+}
+
+.buttonContainer button:hover {
+    background-color: rgb(236, 40, 14);
+    color: rgb(247, 247, 250);
+    transition: background-color 0.5s;
+}
+
+.dataContainer{
+    text-align: center;
+    padding: 10 px;
+}
+
+.dataContainer h2{
+    margin: 2px;
+    font-size: 18px;
+    color: rgb(2, 252, 14);
+}
+
+.dataContainer h5{
+    margin: 2px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 10px;
+    color: rgb(2, 252, 14);
+}
+
+
