@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import axios from "axios";
+import About from './components/about/About.jsx';
+import Detail from './components/detail/Detail.jsx';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Error from './components/error/Error.jsx';
+
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -51,12 +57,25 @@ function App() {
  }
  
   return (
-    <div className="App">
-      <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter} />
-      <Cards characters={characters} onClose={onClose} />
+
+  <div className="App">
+      <BrowserRouter>
+        <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter} />
+        <hr />
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/home" element={
+          <Cards characters={characters} onClose={onClose} /> 
+          }/>
+          <Route path="/detail/:detailId" element={<Detail />} />
+          <Route path="*" element={<Error />} />
+                    
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
+  
 export default App;
+
 

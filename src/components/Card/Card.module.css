@@ -1,30 +1,39 @@
 .container{
     border: 2px solid rgb(182, 255, 13);
-    background-color: hsl(0, 1%, 31%);
+    background-color: hsla(0, 1%, 31%, 0.514);
     border-radius: 10px;
     width: 170px;
     padding: 10px;
-    box-shadow:  3px 3px rgb(4, 39, 63); 
+    box-shadow:  1px 1px rgb(4, 39, 63); 
     margin: 20px;
     margin-top: 50px;
-    transition: background-color 0.5s;
+    transition: background-color 0.4s;
 }
-
-
 
 .container:hover {
     background-color: rgb(7, 7, 7);
-    box-shadow:  7px 7px rgba(4, 39, 63, 0.671);
-    transition: background-color 0.7s; 
+    box-shadow:  7px 7px rgba(4, 39, 63, 0.548);
+    transition: background-color 0.4s; 
+    transform: scale(1.2);
+    transition: transform 0.4s;
 }
 
-
+.container:hover h2 {
+    transform: scale(1.2);
+    transition: transform 0.4s;
+  }
 
 .image{
     width: 170px;
     border-radius: 80px;
     border: 2px solid rgb(182, 255, 13);
 }
+
+.container:hover image {
+    transform: scale(1.2);
+    transition: transform 0.4s;
+  }
+
 
 .buttonContainer{
     border: 50 px solid rgb(223, 196, 187);
@@ -42,7 +51,7 @@
 .buttonContainer button:hover {
     background-color: rgb(236, 40, 14);
     color: rgb(247, 247, 250);
-    transition: background-color 0.5s;
+    transition: background-color 0.2s;
 }
 
 .dataContainer{
@@ -62,5 +71,10 @@
     font-size: 10px;
     color: rgb(2, 252, 14);
 }
+
+.container:hover h5 {
+    transform: scale(1.2);
+    transition: transform 0.4s;
+  }
 
 

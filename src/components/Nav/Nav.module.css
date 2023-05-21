@@ -7,7 +7,7 @@
     width: 100%;
     background-color: #f8f7ee36;
     border-bottom: 2px solid rgb(250, 248, 248);
-    margin-top: -80px;
+    margin-top: -1px;
  }
   
 
@@ -24,18 +24,43 @@
     border-radius: 5px;
     height: 40px;
     width: 100px;
-    background-color: rgba(20, 5, 1, 0.705);
+    background-color: rgba(20, 5, 1, 0.253);
     color: bisque;
     padding: 5px;
     transition: background-color 0.5s; 
     font-size: 18px;
     border: 0;
     margin-top: 9px;
+    box-shadow:  1px 1px rgb(220, 221, 223);
+    font-size: 12px; 
   }
 
   .miBoton:hover {
     background-color: rgba(250, 3, 3, 0.616);
     transition: background-color 0.5s; 
+    box-shadow:  2px 2px rgb(220, 221, 223);  
 }
 
 
+.infoBoton {
+   margin-right: 100px;
+   margin-left: 8px; 
+   border-radius: 5px;
+   height: 40px;
+   width: 100px;
+   background-color: rgb(20, 5, 1, 0.253);
+   color: bisque;
+   padding: 5px;
+   transition: background-color 0.5s; 
+   font-size: 18px;
+   border: 0;
+   margin-top: 9px;
+   box-shadow:  1px 1px rgb(220, 221, 223);
+   font-size: 12px;
+}
+
+.infoBoton:hover {
+   background-color: rgba(250, 3, 3, 0.616);
+    transition: background-color 0.5s; 
+    box-shadow:  2px 2px rgb(220, 221, 223); 
+}

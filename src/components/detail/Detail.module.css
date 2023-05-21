@@ -1,0 +1,13 @@
+.detail {
+    background-color: rgba(6, 247, 38, 0.575);
+display: flex;
+margin-top: 170px;
+margin-bottom: 150px;
+margin-right: 150px;
+margin-left: 150px;
+border: 2px solid rgb(245, 240, 240);
+color: rgb(250, 3, 3);
+border-radius: 10px;
+box-shadow:  3px 3px rgb(4, 39, 63);
+transition: background-color 0.5s;
+}

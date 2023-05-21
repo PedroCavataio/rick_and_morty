@@ -3,8 +3,6 @@
     display: flex;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.226);
-    /* border: 2px solid rgb(89, 109, 2); */
-    
     padding: 10px;
     width: 450px;
     height: 40px;
@@ -13,46 +11,35 @@
     
 }
   
-
 .container input{
     border-radius: 5px;
-    background-color: rgba(76, 252, 6, 0.514);
-    border: 2px solid rgb(89, 109, 2);
+    background-color: rgba(76, 252, 6, 0.514);    
     height: 40px;
     width: 400px;
     margin-right: 10px; 
+    box-shadow:  1px 1px rgb(247, 247, 250);
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 2px rgb(250, 4, 4)
+    
 }
 
 .container button{
     border-radius: 5px;
     height: 40px;
     width: 100px;
-    background-color: rgba(20, 5, 1, 0.705);
+    background-color: rgba(20, 5, 1, 0.295);
     color: bisque;
     padding: 5px;
     transition: background-color 0.5s; 
-    font-size: 18px;
+    font-size: 12px;
     border: 0;
+    box-shadow:  1px 1px rgb(220, 221, 223); 
 }
 
 .container button:hover {
     background-color: rgba(250, 3, 3, 0.616);
+    transition: background-color 0.5s; 
+    box-shadow:  2px 2px rgb(220, 221, 223); 
 }
 
-
-/* .botonNav {
-    border-radius: 5px;
-    height: 40px;
-    width: 100px;
-    background-color: rgba(20, 5, 1, 0.705);
-    color: bisque;
-    padding: 5px;
-    transition: background-color 0.5s;
-    font-size: 18px;
-    border: 0;
-  }
-  
-  .botonNav:hover {
-    background-color: rgba(250, 3, 3, 0.616);
-  }
-   */

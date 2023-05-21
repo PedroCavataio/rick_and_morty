@@ -1,0 +1,19 @@
+.aboutMe{
+    background-color: rgba(6, 247, 38, 0.575);
+display: flex;
+margin-top: 170px;
+margin-right: 150px;
+margin-left: 150px;
+border: 2px solid rgb(245, 240, 240);
+color: rgb(250, 3, 3);
+border-radius: 10px;
+box-shadow:  3px 3px rgb(4, 39, 63);
+transition: background-color 0.5s; 
+}
+
+.aboutMe:hover {
+    background-color: rgba(250, 3, 3, 0.616);
+    transition: background-color 0.5s; 
+    color:rgb(53, 253, 3) 
+}
+
