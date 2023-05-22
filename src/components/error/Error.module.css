@@ -1,4 +1,15 @@
 .error {
-    background-color: blue;
     height: 100vh;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(245, 245, 247);
+    color: rgb(14, 13, 13);
+    font-size: 24px;
+ }
+
+ .text {
+    color:rgb(13, 13, 14);
+ }
+ 

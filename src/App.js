@@ -4,14 +4,15 @@ import Nav from "./components/Nav/Nav.jsx";
 import axios from "axios";
 import About from './components/about/About.jsx';
 import Detail from './components/detail/Detail.jsx';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import Error from './components/error/Error.jsx';
+import Form from './components/form/Form.jsx';
 
 
 
 function App() {
   const [characters, setCharacters] = useState([]);
-
+  
   function onSearch(id) {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
       if (data.name) {
@@ -56,20 +57,74 @@ function App() {
      });
  }
  
+
+
   return (
 
   <div className="App">
       <BrowserRouter>
-        <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter} />
-        <hr />
         <Routes>
-          <Route path="/about" element={<About />} />
-          <Route path="/home" element={
-          <Cards characters={characters} onClose={onClose} /> 
-          }/>
-          <Route path="/detail/:detailId" element={<Detail />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter} />
+                <hr />
+              </>
+            }
+          />
+
+        <Route
+            path="/"
+            element={
+              <>
+                <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter} />
+                <hr />
+                <Form characters={characters} onClose={onClose} />
+              </>
+            }
+          />
+
+
+
+          <Route
+            path="/home"
+            element={
+              <>
+                <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter} />
+                <hr />
+                <Cards characters={characters} onClose={onClose} />
+              </>
+            }
+          />
+
+          <Route
+            path="/about"
+            element={
+              <>
+                <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter} />
+                <hr />
+                <About characters={characters} onClose={onClose} />
+              </>
+            }
+          />
+
+          <Route
+            path="/detail/:detailId"
+            element={
+              <>
+                <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter} />
+                <hr />
+                <Detail characters={characters} onClose={onClose} />
+              </>
+            }
+          />
+
+
+
+
+
           <Route path="*" element={<Error />} />
-                    
         </Routes>
       </BrowserRouter>
     </div>
@@ -77,5 +132,4 @@ function App() {
 }
   
 export default App;
-
 
