@@ -4,6 +4,11 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-top: 200px;
+    background-color: #faf9f9;
+    color:rgb(16, 135, 240);
+    font-size: 14px;
+    
   }
   
   .form-group {
@@ -18,8 +23,9 @@
   .form-input {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 3px;
+    background-color: rgba(237, 243, 243, 0);
   }
   
   .form-button {
@@ -29,6 +35,9 @@
     border-radius: 3px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-left: 105px;
+    margin-top: 15px;
+    
   }
   
   .form-button:hover {
