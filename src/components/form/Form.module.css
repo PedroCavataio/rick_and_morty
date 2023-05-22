@@ -8,7 +8,6 @@
     background-color: #faf9f9;
     color:rgb(16, 135, 240);
     font-size: 14px;
-    
   }
   
   .form-group {
@@ -26,6 +25,7 @@
     border: 1px solid #cccccc;
     border-radius: 3px;
     background-color: rgba(237, 243, 243, 0);
+    
   }
   
   .form-button {

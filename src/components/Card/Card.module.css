@@ -23,15 +23,16 @@
     transition: transform 0.4s;
   }
 
-.image{
+ .image {
     width: 170px;
     border-radius: 80px;
     border: 2px solid rgb(182, 255, 13);
-}
-
-.container:hover image {
-    transform: scale(1.2);
-    transition: transform 0.4s;
+    filter: brightness(5%);
+    transition: filter 0.4s;
+  }
+  
+  .container:hover .image {
+    filter: brightness(100%);
   }
 
 

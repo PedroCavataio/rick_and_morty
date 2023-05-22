@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from "./About.module.css";
 import fotoPedro from "../img/fotoPedro.jpg";
+import { Link } from 'react-router-dom';
 
 export default function About(props) {
   const [isOpen, setIsOpen] = useState(true);
@@ -16,7 +17,9 @@ export default function About(props) {
 
   return (
     <div className={styles.aboutMe}>
+      <Link to={"/home"}>
       <button className={styles.closeButton} onClick={handleClose}>X</button>
+      </Link>
       <img src={fotoPedro} alt="Mi imagen" style={{ borderTopLeftRadius: '8px' }} />
       <h2 className={styles.nombre}>Pedro Cavataio</h2>
       <p className={styles.texto}>

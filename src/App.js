@@ -77,22 +77,14 @@ function App() {
   }
 
   return (
-    <div className="App">
-     
+   <div className="App">
+    
       <Routes>
         <Route
           path="/"
-          element={
-            <>
-              <Nav
-                onSearch={onSearch}
-                onAddRandomCharacter={addRandomCharacter}
-              />
-              <hr />
-              <Form onLogin={login} access={access} />
-            </>
-          }
+          element={<Form onLogin={login} access={access} />}
         />
+
         <Route
           path="/home"
           element={
@@ -106,8 +98,9 @@ function App() {
             </>
           }
         />
+
         <Route
-          path="/about"
+          path="/About"
           element={
             <>
               <Nav
@@ -119,6 +112,7 @@ function App() {
             </>
           }
         />
+
         <Route
           path="/detail/:detailId"
           element={
@@ -128,15 +122,33 @@ function App() {
                 onAddRandomCharacter={addRandomCharacter}
               />
               <hr />
-              <Detail characters={characters} onClose={onClose} />
+              <Detail />
             </>
           }
         />
+        
         <Route path="*" element={<Error />} />
       </Routes>
-       
+      
     </div>
+    
   );
 }
 
 export default App;
+
+
+
+
+/*
+    <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter}
+              />
+<Routes>
+   <Route path = "/about" element = {About/>}/>
+   <Route path = "/home" element = {<Cards characters={characters} onClose={onClose} />
+   <Route path = "detail/:detailId" element ={<detail />}
+ </Routes>
+
+
+
+*/

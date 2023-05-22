@@ -9,7 +9,6 @@ export default function Card(props) {
         <div className={styles.buttonContainer}>
             <button onClick={props.onClose}>X</button> 
         </div>
-            <Link to={`/detail/${props.id}`}>
               <div className={styles.dataContainer}>
                 <h2 className="card-name">{props.name}</h2>
                 <h2>{props.id}</h2>
@@ -18,6 +17,7 @@ export default function Card(props) {
                 <h5>{props.gender}</h5>
                 <h5>{props.origin}</h5>
               </div>
+            <Link to={`/detail/${props.id}`}>
               <div>
                 <img className={styles.image} src={props.image} alt={props.name} /> 
               </div>
