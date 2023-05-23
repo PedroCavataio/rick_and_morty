@@ -18,14 +18,18 @@ function App() {
   const PASSWORD = "123456";
  
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (!access) {
       navigate("/");
     }
-  }, [access, navigate]);
+  }, [access, navigate]); */
  
-
   function onSearch(id) {
+    const parsedId = parseInt(id);
+    if (isNaN(parsedId) || parsedId < 1 || parsedId > 826) {
+      navigate("/error");
+      return;
+    }
     axios
       .get(`https://rickandmortyapi.com/api/character/${id}`)
       .then(({ data }) => {
