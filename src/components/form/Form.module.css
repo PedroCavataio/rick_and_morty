@@ -5,8 +5,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 200px;
-    background-color: #faf9f9;
-    color:rgb(16, 135, 240);
+    background-color: #5c5a5b;
+    color:rgb(244, 247, 248);
     font-size: 14px;
   }
   
@@ -24,12 +24,13 @@
     padding: 8px;
     border: 1px solid #cccccc;
     border-radius: 3px;
-    background-color: rgba(237, 243, 243, 0);
+    background-color: rgba(239, 245, 245, 0.938);
+    margin-left: -7px;
     
   }
   
   .form-button {
-    background-color: #4caf50;
+    background-color: #0581f5;
     color: white;
     border: none;
     border-radius: 3px;

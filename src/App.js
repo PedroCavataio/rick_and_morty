@@ -7,6 +7,7 @@ import About from "./components/about/About";
 import Detail from "./components/detail/Detail";
 import Error from "./components/error/Error";
 import Form from "./components/form/Form";
+import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -15,14 +16,14 @@ function App() {
 
   const EMAIL = "pedrocavataio@gmail.com";
   const PASSWORD = "123456";
+ 
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (!access) {
       navigate("/");
     }
   }, [access, navigate]);
- */
-
+ 
 
   function onSearch(id) {
     axios
@@ -101,6 +102,7 @@ function App() {
           }
         />
 
+        
         <Route
           path="/About"
           element={
@@ -125,6 +127,20 @@ function App() {
               />
               <hr />
               <Detail />
+            </>
+          }
+        />
+
+<Route
+          path="/favorites"
+          element={
+            <>
+              <Nav
+                onSearch={onSearch}
+                onAddRandomCharacter={addRandomCharacter}
+              />
+              <hr />
+              <Favorites onClose={onClose} />
             </>
           }
         />

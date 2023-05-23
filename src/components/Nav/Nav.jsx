@@ -17,6 +17,9 @@ function Nav(props) {
       <NavLink to = "/home" >
         <button className={styles.infoBoton}>Home</button>
       </NavLink>
+      <NavLink to = "/favorites" >
+        <button className={styles.infoBoton}>Favorites</button>
+      </NavLink>
       <NavLink to = "/about" >
         <button className={styles.infoBoton}>About</button>
       </NavLink>
