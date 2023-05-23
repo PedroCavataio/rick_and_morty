@@ -16,11 +16,13 @@ function App() {
   const EMAIL = "pedrocavataio@gmail.com";
   const PASSWORD = "123456";
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (!access) {
       navigate("/");
     }
   }, [access, navigate]);
+ */
+
 
   function onSearch(id) {
     axios
@@ -83,7 +85,7 @@ function App() {
         <Route
           path="/"
           element={<Form onLogin={login} access={access} />}
-        />
+        /> 
 
         <Route
           path="/home"
@@ -138,17 +140,3 @@ function App() {
 export default App;
 
 
-
-
-/*
-    <Nav onSearch={onSearch} onAddRandomCharacter={addRandomCharacter}
-              />
-<Routes>
-   <Route path = "/about" element = {About/>}/>
-   <Route path = "/home" element = {<Cards characters={characters} onClose={onClose} />
-   <Route path = "detail/:detailId" element ={<detail />}
- </Routes>
-
-
-
-*/

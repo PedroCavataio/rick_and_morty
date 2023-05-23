@@ -10,7 +10,10 @@ function Nav(props) {
 
   return (
     <div className={styles.barraSuperior}>
-    
+
+      <NavLink to = "/" >
+        <button className={styles.infoBoton}>Log out</button>
+      </NavLink>    
       <NavLink to = "/home" >
         <button className={styles.infoBoton}>Home</button>
       </NavLink>

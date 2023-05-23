@@ -29,13 +29,13 @@
     border-radius: 5px;
     height: 40px;
     width: 100px;
-    background-color: rgba(20, 5, 1, 0.295);
+    background-color: rgba(255, 255, 255, 0.226);
     color: bisque;
     padding: 5px;
     transition: background-color 0.5s; 
     font-size: 12px;
     border: 0;
-    box-shadow:  1px 1px rgb(220, 221, 223); 
+    box-shadow:  1px 1px rgb(220, 221, 223);  
 }
 
 .container button:hover {
