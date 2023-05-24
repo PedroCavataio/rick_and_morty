@@ -1,25 +1,61 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import Card from '../Card/Card';
 import styles from './Favorites.module.css';
-import { addFav, removeFav } from '../../redux/actions';
+import { addFav, removeFav, orderCards, filterCards } from '../../redux/actions';
 
-function Favorites({ myfavorites, onClose, addFav, removeFav }) {
+function Favorites({ myfavorites, onClose }) {
+  const dispatch = useDispatch();
+  const [aux, setAux] = useState(false);
+
   const handleToggleFav = (id) => {
     const isFavorite = myfavorites.some((fav) => fav.id === id);
     if (isFavorite) {
-      removeFav(id);
+      dispatch(removeFav(id));
     } else {
       const character = myfavorites.find((fav) => fav.id === id);
       if (character) {
-        addFav(character);
+        dispatch(addFav(character));
       }
+    }
+  };
+
+  const handleOrder = (e) => {
+    setAux(!aux); // Invertir el valor del estado aux
+    dispatch(orderCards(e.target.value));
+  };
+
+  const handleFilter = (e) => {
+    const selectedFilter = e.target.value;
+    if (selectedFilter === "all") {
+      // Mostrar todos los personajes
+      dispatch(filterCards(null)); // Utiliza un valor especial para indicar "todos"
+    } else {
+      dispatch(filterCards(selectedFilter));
     }
   };
 
   return (
     <div>
       <div className={styles.container}>
+        <div>
+          <label htmlFor="orderSelect">Orden:</label>
+          <select id="orderSelect" onChange={handleOrder}>
+            <option value="A">Ascendente</option>
+            <option value="D">Descendente</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="filterSelect">Filtrar por género:</label>
+          <select id="filterSelect" onChange={handleFilter}>
+            <option value="">Todos</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Genderless">Genderless</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+
         {myfavorites.map((character) => (
           <Card
             key={character.id}
@@ -29,7 +65,7 @@ function Favorites({ myfavorites, onClose, addFav, removeFav }) {
             species={character.species}
             gender={character.gender}
             image={character.image}
-            onClose={onClose} // Modificación aquí
+            onClose={onClose}
             onToggleFav={() => handleToggleFav(character.id)}
           />
         ))}
@@ -44,9 +80,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
-  addFav,
-  removeFav,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
+export default connect(mapStateToProps)(Favorites);
