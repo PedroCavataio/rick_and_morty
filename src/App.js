@@ -2,32 +2,32 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cards from "./components/Cards/Cards";
-import Nav from "./components/Nav/Nav";
 import About from "./components/about/About";
 import Detail from "./components/detail/Detail";
 import Error from "./components/error/Error";
 import Form from "./components/form/Form";
 import Favorites from "./components/favorites/Favorites";
+import Nav from "./components/Nav/Nav";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
+  const [searchValue, setSearchValue] = useState(""); // Nuevo estado para el valor del input
   const navigate = useNavigate();
 
   const EMAIL = "pedrocavataio@gmail.com";
   const PASSWORD = "123456";
- 
 
-  /* useEffect(() => {
+ /*  useEffect(() => {
     if (!access) {
       navigate("/");
     }
-  }, [access, navigate]); */
- 
+  }, [access, navigate]);  */
+
   function onSearch(id) {
     const parsedId = parseInt(id);
     if (isNaN(parsedId) || parsedId < 1 || parsedId > 826) {
-      navigate("/error");
+      alert('Elige del "1 al 826". En ese rango, encontrarás a todos los personajes conocidos de la serie!');
       return;
     }
     axios
@@ -84,13 +84,9 @@ function App() {
   }
 
   return (
-   <div className="App">
-    
+    <div className="App">
       <Routes>
-        <Route
-          path="/"
-          element={<Form onLogin={login} access={access} />}
-        /> 
+        <Route path="/" element={<Form onLogin={login} access={access} />} />
 
         <Route
           path="/home"
@@ -99,6 +95,7 @@ function App() {
               <Nav
                 onSearch={onSearch}
                 onAddRandomCharacter={addRandomCharacter}
+                setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
               />
               <hr />
               <Cards characters={characters} onClose={onClose} />
@@ -106,7 +103,6 @@ function App() {
           }
         />
 
-        
         <Route
           path="/About"
           element={
@@ -114,6 +110,7 @@ function App() {
               <Nav
                 onSearch={onSearch}
                 onAddRandomCharacter={addRandomCharacter}
+                setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
               />
               <hr />
               <About characters={characters} onClose={onClose} />
@@ -128,6 +125,7 @@ function App() {
               <Nav
                 onSearch={onSearch}
                 onAddRandomCharacter={addRandomCharacter}
+                setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
               />
               <hr />
               <Detail />
@@ -135,28 +133,25 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/favorites"
           element={
             <>
               <Nav
                 onSearch={onSearch}
                 onAddRandomCharacter={addRandomCharacter}
+                setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
               />
               <hr />
               <Favorites onClose={onClose} />
             </>
           }
         />
-        
+
         <Route path="*" element={<Error />} />
       </Routes>
-      
     </div>
-    
   );
 }
 
 export default App;
-
-

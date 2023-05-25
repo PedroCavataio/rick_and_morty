@@ -54,8 +54,7 @@ const Form = ({ onLogin, access }) => {
   };
 
   const isValidEmail = (email) => {
-    // Aquí puedes implementar una validación con expresiones regulares
-    // o utilizar una librería de validación de emails
+    //  validación 
     return true;
   };
 

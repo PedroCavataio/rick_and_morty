@@ -8,7 +8,7 @@ export default function About(props) {
 
   const handleClose = () => {
     setIsOpen(false);
-    props.onClose(); // Llamar a la función onClose pasada como prop
+    props.onClose(); // Llama a la función onClose pasada como prop
   };
 
   if (!isOpen) {
@@ -23,8 +23,8 @@ export default function About(props) {
       <img src={fotoPedro} alt="Mi imagen" style={{ borderTopLeftRadius: '8px' }} />
       <h2 className={styles.nombre}>Pedro Cavataio</h2>
       <p className={styles.texto}>
-        Tecnologías utilizadas, etc. Aquí puedes escribir tu información personal. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque in minus unde rerum nam dolorem deserunt tempora ad reprehenderit, earum est aliquid odio illum quasi assumenda! Cum, quos. Amet, autem.
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis animi facere quae provident, accusamus, soluta quo officiis error consequuntur vel doloremque tempore magni reiciendis adipisci architecto quos nesciunt incidunt blanditiis?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, et consectetur similique sunt itaque voluptatibus reprehenderit, atque, ipsum tempore fuga recusandae. Quisquam nemo itaque veritatis dolor. Nobis voluptatum ab placeat!
+        Tecnologías utilizadas, etc.  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque in minus unde rerum nam dolorem deserunt tempora ad reprehenderit, earum est aliquid odio illum quasi assumenda! Cum, quos. Amet, autem.
+        
       </p>
       <ul>
         <li>React.</li>

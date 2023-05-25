@@ -1,36 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import styles from "./Nav.module.css";
 import { NavLink } from "react-router-dom";
+import Favorites from "../favorites/Favorites.jsx"
+
 
 function Nav(props) {
+  const { onSearch, onAddRandomCharacter, setSearchValue } = props;
+
+  useEffect(() => {
+    setSearchValue(""); // Establecer el valor del input en blanco cuando se carga el componente
+  }, [setSearchValue]);
+
   const handleRandomCharacter = () => {
-    props.onAddRandomCharacter();
+    onAddRandomCharacter();
   };
 
+ 
   return (
     <div className={styles.barraSuperior}>
-
-      <NavLink to = "/" >
+      <NavLink to="/">
         <button className={styles.infoBoton}>Log out</button>
-      </NavLink>    
-      <NavLink to = "/home" >
+      </NavLink>
+      <NavLink to="/home">
         <button className={styles.infoBoton}>Home</button>
       </NavLink>
-      <NavLink to = "/favorites" >
+      <NavLink to="/favorites">
         <button className={styles.infoBoton}>Favorites</button>
       </NavLink>
-      <NavLink to = "/about" >
+      <NavLink to="/about">
         <button className={styles.infoBoton}>About</button>
       </NavLink>
-      <SearchBar onSearch={props.onSearch} />
+
+      <SearchBar onSearch={onSearch} />
       <div className={styles.contenedorNav}>
-        <button className={styles.miBoton} onClick={handleRandomCharacter}>Aleatorio</button>
+        <button className={styles.miBoton} onClick={handleRandomCharacter}>
+          Aleatorio
+        </button>
       </div>
+
     </div>
-    
   );
-}
+};
 
 export default Nav;
+
+
+
 

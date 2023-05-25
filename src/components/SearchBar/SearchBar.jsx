@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./SearchBar.module.css";
 
 export default function SearchBar(props) {
@@ -10,6 +10,7 @@ export default function SearchBar(props) {
  
   const handleSearch = () => {
     props.onSearch(id);
+    setId(''); // Borrar el valor seleccionado después de la búsqueda
   }
 
   return (

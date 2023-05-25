@@ -37,7 +37,7 @@ export default function Detail() {
   const handleGoBack = () => {
     // Navegar hacia atrás o a una ruta específica
     navigate(-1); // Navegar hacia atrás en el historial
-    // navigate('/ruta-especifica'); // Navegar a una ruta específica
+    // navigate('/ruta-especifica'); 
   };
 
   return (

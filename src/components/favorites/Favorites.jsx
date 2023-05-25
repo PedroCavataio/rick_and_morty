@@ -4,6 +4,7 @@ import Card from '../Card/Card';
 import styles from './Favorites.module.css';
 import { addFav, removeFav, orderCards, filterCards } from '../../redux/actions';
 
+
 function Favorites({ myfavorites, onClose }) {
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false);
@@ -29,7 +30,7 @@ function Favorites({ myfavorites, onClose }) {
     const selectedFilter = e.target.value;
     if (selectedFilter === "all") {
       // Mostrar todos los personajes
-      dispatch(filterCards(null)); // Utiliza un valor especial para indicar "todos"
+      dispatch(filterCards(null)); //valor especial para indicar "todos"
     } else {
       dispatch(filterCards(selectedFilter));
     }
@@ -38,16 +39,16 @@ function Favorites({ myfavorites, onClose }) {
   return (
     <div>
       <div className={styles.container}>
-        <div>
-          <label htmlFor="orderSelect">Orden:</label>
-          <select id="orderSelect" onChange={handleOrder}>
+        <div className={styles.orderContainer}>
+          <label htmlFor="orderSelect" className={styles.label}>Orden:</label>
+          <select id="orderSelect" onChange={handleOrder} className={styles.select}>
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
           </select>
         </div>
-        <div>
-          <label htmlFor="filterSelect">Filtrar por género:</label>
-          <select id="filterSelect" onChange={handleFilter}>
+        <div className={styles.filterContainer}>
+          <label htmlFor="filterSelect" className={styles.label}>Filtrar por género:</label>
+          <select id="filterSelect" onChange={handleFilter} className={styles.select}>
             <option value="">Todos</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -81,3 +82,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Favorites);
+
+

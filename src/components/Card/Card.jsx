@@ -35,16 +35,21 @@ function Card(props) {
 
   return (
     <div className={styles.container}>
+     
       <div className={styles.buttonContainer}>
-        <button onClick={handleClose}>X</button>
         {
           isFav ? (
-            <button onClick={handleToggleFav}>❤️</button>
+            <button className={styles.favButton} onClick={handleToggleFav}>❤️</button>
           ) : (
-            <button onClick={handleToggleFav}>🤍</button>
+            <button className={styles.favButton} onClick={handleToggleFav}>🤍</button>
           )
         }
       </div>
+      <Link to={`/detail/${props.id}`}>
+        <div>
+          <img className={styles.image} src={props.image} alt={props.name} />
+        </div>
+      </Link>
       <div className={styles.dataContainer}>
         <h2 className="card-name">{props.name}</h2>
         <h2>{props.id}</h2>
@@ -53,11 +58,10 @@ function Card(props) {
         <h5>{props.gender}</h5>
         <h5>{props.origin}</h5>
       </div>
-      <Link to={`/detail/${props.id}`}>
-        <div>
-          <img className={styles.image} src={props.image} alt={props.name} />
-        </div>
-      </Link>
+     
+      <div className={styles.buttonContainer}>
+        <button className={styles.closeButton} onClick={handleClose}>X</button>
+      </div>
     </div>
   );
 }
