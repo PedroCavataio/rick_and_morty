@@ -1,63 +1,51 @@
 .barraSuperior {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 80px;
-    position: fixed;
-    width: 100%;
-    background-color: #06f8d836; 
-    border-bottom: 2px solid rgb(250, 248, 248);
-    margin-top: -1px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999; /* Asegura que la capa de navegación esté por encima de los demás elementos */
-    }
- 
- 
- .contenedorNav{
-    /* background-color: rgba(255, 255, 255, 0.226);  */
-    width: 120px;
-    height: 60px;
-    margin-top: 8.4px;
-    right: 100px;
-    
- }
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 80px;
+   position: fixed;
+   width: 100%;
+   background-color: #06f8d836; 
+   border-bottom: 2px solid rgb(250, 248, 248);
+   margin-top: -1px;
+   top: 0;
+   left: 0;
+   z-index: 9999;
+}
 
+.contenedorNav {
+   width: 120px;
+   height: 60px;
+   margin-top: 8.4px;
+}
 
- .miBoton {
-    margin-right: 0px; 
-    border-radius: 5px;
-    height: 40px;
-    width: 100px;
-    background-color: rgba(250, 102, 218, 0.473);
-    color: bisque;
-    padding: 5px;
-    transition: background-color 0.5s; 
-    font-size: 18px;
-    border: 0;
-    margin-top: 9.6px;
-    box-shadow:  1px 1px rgb(220, 221, 223); 
-    font-size: 12px; 
-  }
+.miBoton {
+   margin-right: 0px; 
+   border-radius: 5px;
+   height: 40px;
+   width: 100px;
+   background-color: rgba(250, 102, 218, 0.473);
+   color: bisque;
+   padding: 5px;
+   transition: background-color 0.5s; 
+   font-size: 18px;
+   border: 0;
+   margin-top: 9.6px;
+   box-shadow: 1px 1px rgb(220, 221, 223); 
+   font-size: 12px; 
+}
 
-  .miBoton:hover {
-    background-color: rgba(210, 247, 3, 0.404);
-    transition: background-color 0.5s; 
-    box-shadow:  2px 2px rgb(220, 221, 223);   
+.miBoton:hover {
+   background-color: rgba(210, 247, 3, 0.404);
+   transition: background-color 0.5s; 
+   box-shadow: 2px 2px rgb(220, 221, 223);   
 }
 
 .logo {
    width: 100px;
    height: auto;
-   position: fixed;
- /*   top: 50%;
-   left: 50%; */
-  transform: translate(-50%, -50%);
-  
- }
-
+   margin-left: 315px; /* Centrar horizontalmente el logo */
+}
 
 .infoBoton {   
    justify-content: auto;
@@ -73,14 +61,12 @@
    font-size: 18px;
    border: 0;
    margin-top: 9px;
-   box-shadow:  1px 1px rgb(220, 221, 223); 
+   box-shadow: 1px 1px rgb(220, 221, 223); 
    font-size: 12px;
 }
 
 .infoBoton:hover {
-   background-color: rgba(210, 247, 3, 0.404);
-    transition: background-color 0.5s; 
-    box-shadow:  2px 2px rgb(220, 221, 223); 
+   background-color: rgba(250, 3, 3, 0.616);
+   transition: background-color 0.5s; 
+   box-shadow: 2px 2px rgb(220, 221, 223); 
 }
-
-

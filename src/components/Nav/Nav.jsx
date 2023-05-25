@@ -32,9 +32,12 @@ function Nav(props) {
       <NavLink to="/about">
         <button className={styles.infoBoton}>About</button>
       </NavLink>
-       <div>
-       <img src={logohenry} alt="Logo" className={styles.logo} />
-      </div> 
+      <div>
+  <a href="https://www.soyhenry.com/?utm_source=google&utm_medium=cpc&utm_campaign=GADS_SEARCH_ARG_BRAND&utm_content=Brand&gad=1&gclid=Cj0KCQjwjryjBhD0ARIsAMLvnF_GWZ-MKGdG13wh7BrKQq-0ogMsxu2AKchOIyka-B0e6GRDFq-TwRgaAizNEALw_wcB" target="_blank">
+    <img src={logohenry} alt="Logo" className={styles.logo} />
+  </a>
+</div>
+
       <SearchBar onSearch={onSearch} />
       <div className={styles.contenedorNav}>
         <button className={styles.miBoton} onClick={handleRandomCharacter}>
