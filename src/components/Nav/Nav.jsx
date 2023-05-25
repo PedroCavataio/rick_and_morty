@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import styles from "./Nav.module.css";
 import { NavLink } from "react-router-dom";
-import Favorites from "../favorites/Favorites.jsx"
+import Favorites from "../favorites/Favorites.jsx";
+import logohenry from "../img/logohenry.png";
 
 
 function Nav(props) {
@@ -31,7 +32,9 @@ function Nav(props) {
       <NavLink to="/about">
         <button className={styles.infoBoton}>About</button>
       </NavLink>
-
+       <div>
+       <img src={logohenry} alt="Logo" className={styles.logo} />
+      </div> 
       <SearchBar onSearch={onSearch} />
       <div className={styles.contenedorNav}>
         <button className={styles.miBoton} onClick={handleRandomCharacter}>

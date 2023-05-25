@@ -21,8 +21,10 @@
     width: 120px;
     height: 60px;
     margin-top: 8.4px;
+    right: 100px;
     
  }
+
 
  .miBoton {
     margin-right: 0px; 
@@ -46,9 +48,18 @@
     box-shadow:  2px 2px rgb(220, 221, 223);   
 }
 
+.logo {
+   width: 100px;
+   height: auto;
+   position: fixed;
+ /*   top: 50%;
+   left: 50%; */
+  transform: translate(-50%, -50%);
+  
+ }
 
-.infoBoton {
-   
+
+.infoBoton {   
    justify-content: auto;
    margin-right: 0px;
    margin-left: 10px;
@@ -67,7 +78,7 @@
 }
 
 .infoBoton:hover {
-   background-color: rgba(250, 3, 3, 0.616);
+   background-color: rgba(210, 247, 3, 0.404);
     transition: background-color 0.5s; 
     box-shadow:  2px 2px rgb(220, 221, 223); 
 }
