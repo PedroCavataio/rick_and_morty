@@ -18,11 +18,11 @@ function App() {
   const EMAIL = "pedrocavataio@gmail.com";
   const PASSWORD = "123456";
 
- /*  useEffect(() => {
+  /*  useEffect(() => {
     if (!access) {
       navigate("/");
     }
-  }, [access, navigate]);  */
+  }, [access, navigate]);  */ 
 
   function onSearch(id) {
     const parsedId = parseInt(id);

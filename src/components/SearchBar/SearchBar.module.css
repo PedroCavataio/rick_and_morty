@@ -29,7 +29,7 @@
     border-radius: 5px;
     height: 40px;
     width: 100px;
-    background-color: rgba(250, 102, 218, 0.473);
+    background-color: rgba(96, 241, 241, 0.473);
     color: bisque;
     padding: 5px;
     transition: background-color 0.5s; 
@@ -39,7 +39,7 @@
 }
 
 .container button:hover {
-    background-color: rgba(210, 247, 3, 0.404);
+    background-color: rgb(250, 102, 218, 0.473);
     transition: background-color 0.5s; 
     box-shadow:  2px 2px rgb(220, 221, 223); 
 }

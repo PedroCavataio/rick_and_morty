@@ -1,6 +1,6 @@
 .container {
     border: 2px solid rgb(182, 255, 13);
-    background-color: hsla(0, 1%, 31%, 0.514);
+    background-color: hsla(0, 81%, 69%, 0.514);
     width: 130px;
     height: 220px;
     padding: 10px;
@@ -12,7 +12,7 @@
   }
   
   .container:hover {
-    background-color: rgb(7, 7, 7);
+    background-color: rgb(252, 248, 248);
     box-shadow: 7px 7px rgba(4, 39, 63, 0.548);
     transition: background-color 0.4s;
     transform: scale(1.2);
@@ -45,8 +45,8 @@
   }
   
   .buttonContainer button {
-    background-color: rgba(108, 131, 4, 0);
-    color: rgb(250, 248, 248);    
+    background-color: rgba(180, 218, 13, 0);
+    color: rgb(12, 12, 12);    
     margin-bottom: -25px;
     margin-right: -10px;
     padding: 10px;
