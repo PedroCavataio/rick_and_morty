@@ -20,6 +20,12 @@
     border-radius: 50%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   }
+
+  .imageContainer img:hover {
+    transform: scale(1.2);
+    transition: transform 0.4s;
+  }
+  
   
   .infoContainer {
     flex: 1;

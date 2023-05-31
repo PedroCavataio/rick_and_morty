@@ -31,7 +31,7 @@ function App() {
       return;
     }
     axios
-      .get(`https://rickandmortyapi.com/api/character/${id}`)
+      .get(`http://localhost:3001/rickandmorty/character/${id}`) //eemplazar
       .then(({ data }) => {
         if (data.name) {
           const characterExists = characters.find(

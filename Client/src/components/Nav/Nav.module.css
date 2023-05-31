@@ -44,8 +44,15 @@
 .logo {
    width: 100px;
    height: auto;
+   margin-top: 10px;
    margin-left: 315px; /* Centrar horizontalmente el logo */
 }
+
+.logo:hover {
+   transform: scale(1.4);
+   transition: transform 0.3s;
+}
+
 
 .infoBoton {   
    justify-content: auto;
