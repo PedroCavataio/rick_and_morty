@@ -54,7 +54,7 @@ function App() {
     );
   }
 
-  function addRandomCharacter() {
+  /* function addRandomCharacter() {
     axios
       .get("https://rickandmortyapi.com/api/character/")
       .then(({ data }) => {
@@ -68,14 +68,33 @@ function App() {
             ];
           setCharacters((oldChars) => [...oldChars, randomCharacter]);
         } else {
-          window.alert("¡No hay personajes aleatorios disponibles!");
+           window.alert("¡No hay personajes aleatorios disponibles!"); 
         }
       })
       .catch((error) => {
         console.log(error);
       });
-  }
+  } */
 
+  function addRandomCharacter() {
+    const maxId = 826;   
+    const randomId = Math.floor(Math.random() * maxId) + 1;
+    const isCharacterAdded = characters.some((char) => char.id === randomId);
+  
+    if (!isCharacterAdded) {     
+      axios
+        .get(`https://rickandmortyapi.com/api/character/${randomId}`)
+        .then(({ data }) => {
+          setCharacters((oldChars) => [...oldChars, data]);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {     
+      addRandomCharacter();
+    }
+  }
+  
   function login(userData) {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
       setAccess(true);
@@ -155,3 +174,9 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+     

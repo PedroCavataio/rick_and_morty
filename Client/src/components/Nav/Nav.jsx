@@ -40,9 +40,7 @@ function Nav(props) {
 
       <SearchBar onSearch={onSearch} />
       <div className={styles.contenedorNav}>
-        <button className={styles.miBoton} onClick={handleRandomCharacter}>
-          Aleatorio
-        </button>
+        <button className={styles.miBoton} onClick={handleRandomCharacter}>Aleatorio</button>
       </div>
 
     </div>

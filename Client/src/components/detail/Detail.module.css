@@ -5,10 +5,9 @@
     height: 50vh;
     background-color: #f2f2f277;
     margin-top: 150px;
-    
   }
-  
-  .imageContainer {
+
+   .imageContainer {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -26,6 +25,7 @@
     transition: transform 0.5s;
     /* border-color: #4401affd; */
     box-shadow: 0px 0px 100px rgba(4, 0, 250, 0.726)
+    
   }
   
   
@@ -34,15 +34,15 @@
     padding: 40px;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    
-  }
+   }
   
   .name {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-  }
-  
+  } 
+
+    
   .details p {
     margin-bottom: 10px;
   }

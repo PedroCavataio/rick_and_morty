@@ -39,7 +39,7 @@
 }
 
 .container button:hover {
-    background-color: rgb(250, 102, 218, 0.473);
+    background-color: rgb(67, 111, 153, 0.24);
     transition: background-color 0.5s; 
     box-shadow:  2px 2px rgb(220, 221, 223); 
 }

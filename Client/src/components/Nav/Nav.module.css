@@ -36,7 +36,7 @@
 }
 
 .miBoton:hover {
-   background-color: rgba(250, 102, 218, 0.473);
+   background-color: rgba(67, 111, 153, 0.24);
    transition: background-color 0.5s; 
    box-shadow: 2px 2px rgb(220, 221, 223);   
 }
@@ -79,7 +79,7 @@
 }
 
 .infoBoton:hover {
-   background-color: rgba(250, 102, 218, 0.473);
+   background-color: rgba(67, 111, 153, 0.24);
    transition: background-color 0.5s; 
    box-shadow: 2px 2px rgb(220, 221, 223); 
 }
