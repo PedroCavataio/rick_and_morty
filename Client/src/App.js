@@ -30,6 +30,8 @@ function App() {
       alert('Elige del "1 al 826". En ese rango, encontrarás a todos los personajes conocidos de la serie!');
       return;
     }
+
+    try {
     axios
       .get(`http://localhost:3001/rickandmorty/character/${id}`) //eemplazar
       .then(({ data }) => {
@@ -46,6 +48,9 @@ function App() {
           window.alert("¡No hay personajes con este ID!");
         }
       });
+    } catch (error) {
+      console.error('Error en la solicitud:', error.message);
+    }
   }
 
   function onClose(id) {
@@ -102,6 +107,18 @@ function App() {
     }
   }
 
+/*   function login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
+    });
+ } */
+
+
+
   return (
     <div className="App">
       <Routes>
@@ -138,7 +155,7 @@ function App() {
         />
 
         <Route
-          path="/detail/:detailId"
+          path="/detail/:id"   //cambiada
           element={
             <>
               <Nav
@@ -147,7 +164,7 @@ function App() {
                 setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
               />
               <hr />
-              <Detail />
+              <Detail characters={characters}/>   cambiado
             </>
           }
         />

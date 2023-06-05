@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import styles from "./Nav.module.css";
 import { NavLink } from "react-router-dom";
-import Favorites from "../favorites/Favorites.jsx";
+import favorites from "../favorites/Favorites.jsx"
 import logohenry from "../img/logohenry.png";
 
 

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const ADD_FAV = "ADD_FAV";
 const REMOVE_FAV = "REMOVE_FAV";
 const FILTER = "FILTER";
@@ -10,12 +12,18 @@ const initialState = {
 
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
+
     case ADD_FAV:
       return {
         ...state,
         myFavorites: [...state.myFavorites, payload],
         allCharacters: [...state.allCharacters, payload], // Agregar el nuevo personaje a allCharacters
       };
+
+ /*    case 'ADD_FAV':
+        return { ...state, myFavorites: [...state.myFavorites, payload], allCharacters: [...state.allCharacters, payload],
+        }; */ 
+
     case REMOVE_FAV:
       const filteredFavs = state.myFavorites.filter(
         (fav) => fav.id !== Number(payload)
@@ -25,6 +33,10 @@ export default function reducer(state = initialState, { type, payload }) {
         myFavorites: filteredFavs,
         allCharacters: filteredFavs, // Actualizar allCharacters con los personajes filtrados
       };
+
+    /* case 'REMOVE_FAV':
+      return { ...state, myFavorites: payload }; */
+
     case FILTER:
       let filteredCharacters = [];
       if (payload) {
@@ -38,6 +50,7 @@ export default function reducer(state = initialState, { type, payload }) {
         ...state,
         myFavorites: filteredCharacters, // Actualizar myFavorites con los personajes filtrados
       };
+      
     case ORDER:
       const orderedCharacters = [...state.allCharacters];
       orderedCharacters.sort((a, b) => {

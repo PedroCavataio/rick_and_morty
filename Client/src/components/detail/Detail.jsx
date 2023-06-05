@@ -4,13 +4,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styles from './Detail.module.css';
 
 export default function Detail() {
-  const { detailId } = useParams(); //? cambiar
+  const { id } = useParams(); //? cambiar
   const navigate = useNavigate();
   const [character, setCharacter] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${detailId}`)  //cambiada
+    axios(`http://localhost:3001/rickandmorty/character/${id}`)  //cambiada
       .then(({ data }) => {
         console.log('Character data:', data);
         if (data.name) {
@@ -30,7 +30,7 @@ export default function Detail() {
     return () => {
       setCharacter({});
     };
-  }, [detailId]);    //cambiada
+  }, [id]);    //cambiada
 
   console.log('Character state:', character);
 
