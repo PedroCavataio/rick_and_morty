@@ -1,14 +1,14 @@
-import axios from "axios"; //aregado x express
+import axios from "axios"; //aregado para express
 
+
+// export const addFav = (character) => {
+//   return {
+//     type: "ADD_FAV",
+//     payload: character
+//   };
+// } 
 
 export const addFav = (character) => {
-  return {
-    type: "ADD_FAV",
-    payload: character
-  };
-} 
-
-/* export const addFav = (character) => {
   const endpoint = 'http://localhost:3001/rickandmorty/fav';
   return (dispatch) => {
      axios.post(endpoint, character).then(({ data }) => {
@@ -18,18 +18,18 @@ export const addFav = (character) => {
         });
      });
   };
-}; */
-
-
-
-export const removeFav = (id) => {
-  return {
-    type: "REMOVE_FAV",
-    payload: id
-  };
 };
 
-/* export const removeFav = (id) => {
+
+
+// export const removeFav = (id) => {
+//   return {
+//     type: "REMOVE_FAV",
+//     payload: id
+//   };
+// };
+
+export const removeFav = (id) => {
   const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
   return (dispatch) => {
      axios.delete(endpoint).then(({ data }) => {
@@ -40,7 +40,7 @@ export const removeFav = (id) => {
      });
   };
 };
- */
+
 
 
 export const filterCards = (gender) => {

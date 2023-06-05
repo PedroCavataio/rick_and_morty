@@ -13,29 +13,29 @@ const initialState = {
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
 
-    case ADD_FAV:
-      return {
-        ...state,
-        myFavorites: [...state.myFavorites, payload],
-        allCharacters: [...state.allCharacters, payload], // Agregar el nuevo personaje a allCharacters
-      };
+    // case ADD_FAV:
+    //   return {
+    //     ...state,
+    //     myFavorites: [...state.myFavorites, payload],
+    //     allCharacters: [...state.allCharacters, payload], // Agregar el nuevo personaje a allCharacters
+    //   };
 
- /*    case 'ADD_FAV':
+    case 'ADD_FAV':
         return { ...state, myFavorites: [...state.myFavorites, payload], allCharacters: [...state.allCharacters, payload],
-        }; */ 
+        }; 
 
-    case REMOVE_FAV:
-      const filteredFavs = state.myFavorites.filter(
-        (fav) => fav.id !== Number(payload)
-      );
-      return {
-        ...state,
-        myFavorites: filteredFavs,
-        allCharacters: filteredFavs, // Actualizar allCharacters con los personajes filtrados
-      };
+    // case REMOVE_FAV:
+    //   const filteredFavs = state.myFavorites.filter(
+    //     (fav) => fav.id !== Number(payload)
+    //   );
+    //   return {
+    //     ...state,
+    //     myFavorites: filteredFavs,
+    //     allCharacters: filteredFavs, // Actualizar allCharacters con los personajes filtrados
+    //   };
 
-    /* case 'REMOVE_FAV':
-      return { ...state, myFavorites: payload }; */
+    case 'REMOVE_FAV':
+      return { ...state, myFavorites: payload };
 
     case FILTER:
       let filteredCharacters = [];
