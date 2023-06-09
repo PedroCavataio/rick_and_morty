@@ -4,14 +4,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styles from './Detail.module.css';
 
 export default function Detail() {
-  const { id } = useParams(); //? cambiar
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [character, setCharacter] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)  //cambiada
-      .then(({ data }) => {
+    axios(`http://localhost:3001/rickandmorty/character/${id}`)  
+    .then((response) => {
+        const data = response.data;    
         console.log('Character data:', data);
         if (data.name) {
           setCharacter(data);
@@ -20,6 +21,7 @@ export default function Detail() {
         }
         setIsLoading(false);
       })
+
       .catch((error) => {
         console.error('Error fetching character:', error);
         window.alert('Ocurrió un error al obtener la información del personaje');
@@ -30,7 +32,7 @@ export default function Detail() {
     return () => {
       setCharacter({});
     };
-  }, [id]);    //cambiada
+  }, [id]);    
 
   console.log('Character state:', character);
 
@@ -65,3 +67,8 @@ export default function Detail() {
     </div>
   );
 }
+
+
+
+
+

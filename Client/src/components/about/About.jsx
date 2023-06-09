@@ -8,7 +8,7 @@ export default function About(props) {
 
   const handleClose = () => {
     setIsOpen(false);
-    props.onClose(); // Llama a la función onClose pasada como prop
+    props.onClose(); 
   };
 
   if (!isOpen) {

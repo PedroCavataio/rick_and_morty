@@ -6,36 +6,26 @@ const FILTER = "FILTER";
 const ORDER = "ORDER";
 
 const initialState = {
-  myFavorites: [],
+  myFavorites: [], // almacena favoritos
   allCharacters: [], // Nueva propiedad para almacenar todos los personajes
 };
 
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
+    
+    case ADD_FAV:
+      return {
+        ...state,
+        myFavorites: [...state.myFavorites, payload],
+        allCharacters: [...state.allCharacters, payload],
+      };
 
-    // case ADD_FAV:
-    //   return {
-    //     ...state,
-    //     myFavorites: [...state.myFavorites, payload],
-    //     allCharacters: [...state.allCharacters, payload], // Agregar el nuevo personaje a allCharacters
-    //   };
+   
 
-    case 'ADD_FAV':
-        return { ...state, myFavorites: [...state.myFavorites, payload], allCharacters: [...state.allCharacters, payload],
-        }; 
+ case 'REMOVE_FAV':
+        return { ...state, myFavorites: payload };  
 
-    // case REMOVE_FAV:
-    //   const filteredFavs = state.myFavorites.filter(
-    //     (fav) => fav.id !== Number(payload)
-    //   );
-    //   return {
-    //     ...state,
-    //     myFavorites: filteredFavs,
-    //     allCharacters: filteredFavs, // Actualizar allCharacters con los personajes filtrados
-    //   };
 
-    case 'REMOVE_FAV':
-      return { ...state, myFavorites: payload };
 
     case FILTER:
       let filteredCharacters = [];
@@ -44,28 +34,29 @@ export default function reducer(state = initialState, { type, payload }) {
           (character) => character.gender === payload
         );
       } else {
-        filteredCharacters = state.allCharacters; // Mostrar todos los personajes
+        filteredCharacters = state.allCharacters;
       }
       return {
         ...state,
         myFavorites: filteredCharacters, // Actualizar myFavorites con los personajes filtrados
       };
-      
+
     case ORDER:
       const orderedCharacters = [...state.allCharacters];
       orderedCharacters.sort((a, b) => {
         if (payload === "A") {
-          return a.id - b.id; // Orden ascendente
+          return a.id - b.id;
         } else if (payload === "D") {
-          return b.id - a.id; // Orden descendente
+          return b.id - a.id;
         } else {
-          return 0; // No se realiza ningún ordenamiento
+          return 0;
         }
       });
       return {
         ...state,
         myFavorites: orderedCharacters, // Actualizar myFavorites con los personajes ordenados
       };
+
     default:
       return state;
   }

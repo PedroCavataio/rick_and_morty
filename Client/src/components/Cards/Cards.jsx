@@ -7,7 +7,7 @@ export default function Cards(props) {
    const {characters} = props;
    return (
         <div className={styles.contenedor}>
-            {characters.map(character => (
+            {characters?.map (character =>
               <Card
               key={character.id}
               id={character.id}
@@ -19,7 +19,7 @@ export default function Cards(props) {
               image={character.image}
               onClose={() => props.onClose(character.id)}
               />
-             ))}
+             )}
         </div>
   );
 }

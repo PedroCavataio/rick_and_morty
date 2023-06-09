@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import Cards from "./components/Cards/Cards";
 import About from "./components/about/About";
@@ -12,46 +12,51 @@ import Nav from "./components/Nav/Nav";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
-  const [searchValue, setSearchValue] = useState(""); // Nuevo estado para el valor del input
+  const [searchValue, setSearchValue] = useState(""); 
   const navigate = useNavigate();
 
-  const EMAIL = "pedrocavataio@gmail.com";
-  const PASSWORD = "123456";
-
-  /*  useEffect(() => {
+   /*  useEffect(() => {
     if (!access) {
       navigate("/");
     }
   }, [access, navigate]);  */ 
 
-  function onSearch(id) {
+  async function onSearch(id) {
     const parsedId = parseInt(id);
     if (isNaN(parsedId) || parsedId < 1 || parsedId > 826) {
       alert('Elige del "1 al 826". En ese rango, encontrarás a todos los personajes conocidos de la serie!');
       return;
     }
-
+     
     try {
-    axios
-      .get(`http://localhost:3001/rickandmorty/character/${id}`) //eemplazar
-      .then(({ data }) => {
-        if (data.name) {
-          const characterExists = characters.find(
-            (char) => char.id === data.id
-          );
-          if (characterExists) {
-            window.alert("¡Este personaje ya está en la lista!");
-          } else {
-            setCharacters((oldChars) => [...oldChars, data]);
-          }
+      const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
+      if (data.name) {
+        const characterExists = characters.find((char) => char.id === data.id);
+        if (characterExists) {
+          window.alert("¡Este personaje ya está en la lista!");
         } else {
-          window.alert("¡No hay personajes con este ID!");
+          setCharacters((oldChars) => [...oldChars, data]);
         }
-      });
+      } else {
+        window.alert("¡No hay personajes con este ID!");
+      }
     } catch (error) {
       console.error('Error en la solicitud:', error.message);
     }
+  }  
+
+  async function login(userData) {
+  const { email, password } = userData;
+  const URL = 'http://localhost:3001/rickandmorty/login/';
+  try {
+    const { data } = await axios.get(URL + `?email=${email}&password=${password}`);
+    const { access } = data;
+    setAccess(access);
+    access && navigate('/home');
+  } catch (error) {
+    console.error('Error en el inicio de sesión:', error.message);
   }
+}
 
   function onClose(id) {
     setCharacters((oldChars) =>
@@ -59,36 +64,14 @@ function App() {
     );
   }
 
-  /* function addRandomCharacter() {
-    axios
-      .get("https://rickandmortyapi.com/api/character/")
-      .then(({ data }) => {
-        const availableCharacters = data.results.filter(
-          (character) => !characters.some((char) => char.id === character.id)
-        );
-        if (availableCharacters.length > 0) {
-          const randomCharacter =
-            availableCharacters[
-              Math.floor(Math.random() * availableCharacters.length)
-            ];
-          setCharacters((oldChars) => [...oldChars, randomCharacter]);
-        } else {
-           window.alert("¡No hay personajes aleatorios disponibles!"); 
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  } */
-
   function addRandomCharacter() {
     const maxId = 826;   
-    const randomId = Math.floor(Math.random() * maxId) + 1;
-    const isCharacterAdded = characters.some((char) => char.id === randomId);
+    const id = Math.floor(Math.random() * maxId) + 1;
+    const isCharacterAdded = characters.some((char) => char.id === id);
   
     if (!isCharacterAdded) {     
       axios
-        .get(`https://rickandmortyapi.com/api/character/${randomId}`)
+        .get(`http://localhost:3001/rickandmorty/character/${id}`)
         .then(({ data }) => {
           setCharacters((oldChars) => [...oldChars, data]);
         })
@@ -98,29 +81,11 @@ function App() {
     } else {     
       addRandomCharacter();
     }
-  }
-  
-  // function login(userData) {
-  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
-  //     setAccess(true);
-  //     navigate("/home");
-  //   }
-  // }
-
-  function login(userData) {
-    const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-       const { access } = data;
-       setAccess(data);
-       access && navigate('/home');
-    });
- }
-
-
-
+  }  
+ 
   return (
     <div className="App">
+     
       <Routes>
         <Route path="/" element={<Form onLogin={login} access={access} />} />
 
@@ -131,7 +96,7 @@ function App() {
               <Nav
                 onSearch={onSearch}
                 onAddRandomCharacter={addRandomCharacter}
-                setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
+                setSearchValue={setSearchValue} 
               />
               <hr />
               <Cards characters={characters} onClose={onClose} />
@@ -146,7 +111,7 @@ function App() {
               <Nav
                 onSearch={onSearch}
                 onAddRandomCharacter={addRandomCharacter}
-                setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
+                setSearchValue={setSearchValue} 
               />
               <hr />
               <About characters={characters} onClose={onClose} />
@@ -155,16 +120,17 @@ function App() {
         />
 
         <Route
-          path="/detail/:id"   //cambiada
+          path="/detail/:id"  
           element={
             <>
               <Nav
                 onSearch={onSearch}
                 onAddRandomCharacter={addRandomCharacter}
-                setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
+                setSearchValue={setSearchValue} 
               />
               <hr />
-              <Detail characters={characters}/>   cambiado
+              <Detail characters={characters}/>   
+              
             </>
           }
         />
@@ -176,10 +142,10 @@ function App() {
               <Nav
                 onSearch={onSearch}
                 onAddRandomCharacter={addRandomCharacter}
-                setSearchValue={setSearchValue} // Pasa setSearchValue a Nav para establecer el valor del input
+                setSearchValue={setSearchValue} 
               />
               <hr />
-              <Favorites onClose={onClose} />
+              <Favorites characters={characters} onClose={onClose} />
             </>
           }
         />
@@ -191,9 +157,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-     

@@ -29,8 +29,8 @@ function Card(props) {
   };
 
   const handleClose = () => {
-    props.onClose(props.id); // Llama a props.onClose con el ID del personaje
-    props.removeFav(props.id); // Elimina el personaje de la lista de favoritos
+    props.onClose(props.id); 
+    props.removeFav(props.id); 
   };
 
   return (
