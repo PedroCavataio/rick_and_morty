@@ -4,7 +4,7 @@ import Card from '../Card/Card';
 import styles from './Favorites.module.css';
 import { addFav, removeFav, orderCards, filterCards } from '../../redux/actions';
 
-function Favorites({ myfavorites, onClose}) {     //se agrego =>character, addfav, removerFav
+function Favorites({ myfavorites, onClose}) {     
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false);
 

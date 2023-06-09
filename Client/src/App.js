@@ -15,12 +15,7 @@ function App() {
   const [searchValue, setSearchValue] = useState(""); 
   const navigate = useNavigate();
 
-   /*  useEffect(() => {
-    if (!access) {
-      navigate("/");
-    }
-  }, [access, navigate]);  */ 
-
+  
   async function onSearch(id) {
     const parsedId = parseInt(id);
     if (isNaN(parsedId) || parsedId < 1 || parsedId > 826) {
@@ -145,7 +140,7 @@ function App() {
                 setSearchValue={setSearchValue} 
               />
               <hr />
-              <Favorites characters={characters} onClose={onClose} />
+              <Favorites onClose={onClose} />
             </>
           }
         />

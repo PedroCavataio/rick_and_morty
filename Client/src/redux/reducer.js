@@ -6,14 +6,14 @@ const FILTER = "FILTER";
 const ORDER = "ORDER";
 
 const initialState = {
-  myFavorites: [], // almacena favoritos
-  allCharacters: [], // Nueva propiedad para almacenar todos los personajes
+  myFavorites: [], 
+  allCharacters: [], 
 };
 
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
     
-    case ADD_FAV:
+    case 'ADD_FAV':
       return {
         ...state,
         myFavorites: [...state.myFavorites, payload],
@@ -27,7 +27,7 @@ export default function reducer(state = initialState, { type, payload }) {
 
 
 
-    case FILTER:
+    case 'FILTER':
       let filteredCharacters = [];
       if (payload) {
         filteredCharacters = state.allCharacters.filter(
@@ -41,7 +41,7 @@ export default function reducer(state = initialState, { type, payload }) {
         myFavorites: filteredCharacters, // Actualizar myFavorites con los personajes filtrados
       };
 
-    case ORDER:
+    case 'ORDER':
       const orderedCharacters = [...state.allCharacters];
       orderedCharacters.sort((a, b) => {
         if (payload === "A") {
