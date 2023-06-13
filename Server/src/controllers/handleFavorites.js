@@ -5,7 +5,11 @@ const server = express()
 let myFavorites = [];
 
 function postFav (req,res) {
-  const {id,name,status,gender,species,image,origin,location} = req.body;
+  const {id,name,status,gender,species,image,origin,location} = req.body; 
+  const existingFavorite = myFavorites.find((favorite) => favorite.id === id);
+  if (existingFavorite) {
+    return res.status(400).json({ error: 'El favorito ya existe' });
+  }
   myFavorites.push({
       id,
       name,
@@ -19,17 +23,17 @@ function postFav (req,res) {
   return res.json(myFavorites);
 }
 
-
 function deleteFav (req,res) {
-  const { id } = req.params;
-  let filtered = [];
-  if (myFavorites.length){
-      myFavorites.filter(element =>{
-          filtered = (element.id !== id)
-      })
-  }
-  return res.json(filtered);
-}
+  const { id } = req.params;  
+  console.log(id)
+  let filtered = myFavorites.filter(element => element.id !==id) 
+  myFavorites  = filtered;
+     return res.json(myFavorites);
+};
 
 module.exports = { postFav, deleteFav };
+
+
+
+
 

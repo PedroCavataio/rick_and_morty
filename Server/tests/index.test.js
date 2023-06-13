@@ -1,6 +1,7 @@
 const app = require('../src/app');
 const session = require('supertest');
 const agent = session(app);
+/* const postFav = require("../src/controllers/handleFavorites") */
 
 describe('Test de RUTAS', () => {
   describe('GET /rickandmorty/character/:id', () => {
@@ -42,36 +43,66 @@ describe('Test de RUTAS', () => {
     });
   });
 
+  const app = require('../src/app');
+  const session = require('supertest');
+  const agent = session(app);
+  
+
   describe('POST /rickandmorty/fav', () => {
-    it('Devuelve un arreglo con el elemento enviado por body', async () => {
-      const body = {
-        favorite: 'personaje1',
+    let body1;
+  
+    beforeEach(() => {
+      body1 = {
+        id: 1,
+        name: 'personaje1',
+        status: 'alive',
+        gender: 'male',
+        species: 'human',
+        image: 'imagen1.jpg',
+        origin: 'Earth',
+        location: 'Earth',
       };
-      const response = await agent.post('/rickandmorty/fav').send(body);
-      expect(response.body).toEqual([body]);
     });
-
-    it('Devuelve un arreglo que incluye el elemento enviado previamente', async () => {
-      const body1 = {
-        favorite: 'personaje1',
-      };
+  
+    it('Lo que envíes por body debe ser devuelto en un arreglo', async () => {
+      const response = await agent.post('/rickandmorty/fav').send(body1);
+  
+      expect(Array.isArray(response.body)).toBe(true);
+      expect(response.body.length).toBe(1);
+      expect(response.body).toEqual([body1]);
+    });
+  
+    it('Al enviar un nuevo elemento por body, este debe ser devuelto en un arreglo que incluye un elemento enviado previamente', async () => {
       const body2 = {
-        favorite: 'personaje2',
+        id: 2,
+        name: 'personaje2',
+        status: 'unknown',
+        gender: 'female',
+        species: 'alien',
+        image: 'imagen2.jpg',
+        origin: 'Unknown',
+        location: 'Unknown',
       };
-
+  
       await agent.post('/rickandmorty/fav').send(body1);
-
       const response = await agent.post('/rickandmorty/fav').send(body2);
-      expect(response.body).toEqual([body1, body2]);
+
+       
+      expect(Array.isArray(response.body)).toBe(true);
+      expect(response.body.length).toBe(2);
+      expect(response.body).toContainEqual(body1);
+      expect(response.body).toContainEqual(body2);
     });
   });
+  
+  
 
-  describe('DELETE /rickandmorty/fav/:id', () => {
+   describe('DELETE /rickandmorty/fav/:id', () => {
     it('No modifica los elementos previos si el ID no existe', async () => {
       const initialResponse = await agent.get('/rickandmorty/fav');
       const initialFavorites = initialResponse.body;
 
-       await agent.delete('/rickandmorty/fav/999');
+      await agent.delete('/rickandmorty/fav/999');
 
       const response = await agent.get('/rickandmorty/fav');
       expect(response.body).toEqual(initialFavorites);
