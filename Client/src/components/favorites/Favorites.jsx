@@ -40,9 +40,7 @@ function Favorites({ myfavorites, onClose}) {
     <div>
       <div className={styles.container}>
         <div className={styles.orderContainer}>
-          <label htmlFor="orderSelect" className={styles.label}>
-            Orden:
-          </label>
+          <label htmlFor="orderSelect" className={styles.label}>Orden:</label>
           <select id="orderSelect" onChange={handleOrder} className={styles.select}>
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
@@ -61,21 +59,20 @@ function Favorites({ myfavorites, onClose}) {
           </select>
         </div>
 
-        {Array.isArray(myfavorites) ? (
-          myfavorites.map((character) => (
-            <Card
-              key={character.id}
-              id={character.id}
-              name={character.name}
-              status={character.status}
-              species={character.species}
-              gender={character.gender}
-              image={character.image}
-              onClose={onClose}
-              onToggleFav={() => handleToggleFav(character.id)}
-            />
-          ))
-        ) : null}
+
+        {myfavorites.map((character) => (
+          <Card
+            key={character.id}
+            id={character.id}
+            name={character.name}
+            status={character.status}
+            species={character.species}
+            gender={character.gender}
+            image={character.image}
+            onClose={onClose}
+            onToggleFav={() => handleToggleFav(character.id)}
+          />
+        ))}
       </div>
     </div>
   );
@@ -88,3 +85,4 @@ const mapStateToProps = (state) => {
 }; 
 
 export default connect(mapStateToProps)(Favorites);
+

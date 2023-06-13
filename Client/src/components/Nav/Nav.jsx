@@ -10,7 +10,7 @@ function Nav(props) {
   const { onSearch, onAddRandomCharacter, setSearchValue } = props;
 
   useEffect(() => {
-    setSearchValue(""); // Establecer el valor del input en blanco cuando se carga el componente
+    setSearchValue(""); 
   }, [setSearchValue]);
 
   const handleRandomCharacter = () => {
@@ -23,26 +23,29 @@ function Nav(props) {
       <NavLink to="/">
         <button className={styles.infoBoton}>Log out</button>
       </NavLink>
+
       <NavLink to="/home">
         <button className={styles.infoBoton}>Home</button>
       </NavLink>
+
       <NavLink to="/favorites">
         <button className={styles.infoBoton}>Favorites</button>
-      </NavLink>
+      </NavLink>     
+
+      <NavLink to="/home">
+        <button className={styles.infoBoton} onClick={handleRandomCharacter}>Random Card</button>
+        </NavLink>
+
       <NavLink to="/about">
         <button className={styles.infoBoton}>About</button>
       </NavLink>
-      <div>
-  <a href="https://www.soyhenry.com/?utm_source=google&utm_medium=cpc&utm_campaign=GADS_SEARCH_ARG_BRAND&utm_content=Brand&gad=1&gclid=Cj0KCQjwjryjBhD0ARIsAMLvnF_GWZ-MKGdG13wh7BrKQq-0ogMsxu2AKchOIyka-B0e6GRDFq-TwRgaAizNEALw_wcB" target="_blank">
-    <img src={logohenry} alt="Logo" className={styles.logo} />
-  </a>
-</div>
+
+              <a href="https://www.soyhenry.com/?utm_source=google&utm_medium=cpc&utm_campaign=GADS_SEARCH_ARG_BRAND&utm_content=Brand&gad=1&gclid=Cj0KCQjwjryjBhD0ARIsAMLvnF_GWZ-MKGdG13wh7BrKQq-0ogMsxu2AKchOIyka-B0e6GRDFq-TwRgaAizNEALw_wcB" target="_blank">
+                <img src={logohenry} alt="Logo" className={styles.logo} />
+             </a>      
 
       <SearchBar onSearch={onSearch} />
-      <div className={styles.contenedorNav}>
-        <button className={styles.miBoton} onClick={handleRandomCharacter}>Aleatorio</button>
-      </div>
-
+     
     </div>
   );
 };

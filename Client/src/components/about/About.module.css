@@ -1,9 +1,9 @@
-.aboutMe {
+  .aboutMe {
     background-color: rgba(255, 0, 221, 0.459);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 115px;
+    margin-top: 10%;
     margin-left: 160px;
     text-align: center;
     width: 80%;
@@ -11,17 +11,17 @@
     border-radius: 8px;
     color: antiquewhite;
     border: 2px solid rgb(249, 250, 247);
-    box-shadow:  4px 4px rgba(182, 255, 13, 0.438);
+    box-shadow: 4px 4px rgba(182, 255, 13, 0.438);
     transition: background-color 0.5s;
+    position: relative;
   }
-
-  .aboutMe:hover{
+  
+  .aboutMe:hover {
     background-color: rgba(182, 255, 13, 0.438);
-    color:rgb(8, 8, 8);
-    transition: background-color 0.5s; 
-    box-shadow:  4px 4px rgba(255, 0, 221, 0.459);
+    color: rgb(8, 8, 8);
+    transition: background-color 0.5s;
+    box-shadow: 4px 4px rgba(255, 0, 221, 0.459);
   }
-
   
   .aboutMe img {
     width: 200px;
@@ -29,24 +29,23 @@
     border-radius: 50%;
     margin-bottom: 10px;
   }
-
   
   .nombre {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
   }
-
+  
   .texto {
-      color: antiquewhite;
-      margin-bottom: 20px;
-    }
- 
-  .aboutMe:hover p { 
-        color: black;
-        transition: background-color 0.5s;
-      }
-    
+    color: antiquewhite;
+    margin-bottom: 20px;
+  }
+  
+  .aboutMe:hover p {
+    color: black;
+    transition: background-color 0.5s;
+  }
+  
   ul {
     color: antiquewhite;
     list-style-type: none;
@@ -56,28 +55,28 @@
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
   }
-
+  
   .aboutMe:hover ul {
-    color:rgb(8, 8, 8);
+    color: rgb(8, 8, 8);
     transition: background-color 0.5s;
-
   }
   
   ul li {
-    
     margin-bottom: 5px;
   }
-
-
+  
   .closeButton {
     background-color: rgba(108, 131, 4, 0);
     color: rgb(248, 248, 247);
     border-radius: 50px;
     border: 0px;
     font-size: 50px;
-    margin-left: 1200px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
   }
   
   .closeButton:hover {
     color: rgb(252, 4, 4);
   }
+  

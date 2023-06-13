@@ -10,7 +10,7 @@ export default function SearchBar(props) {
  
   const handleSearch = () => {
     props.onSearch(id);
-    setId(''); // Borrar el valor seleccionado después de la búsqueda
+    setId(''); 
   }
 
   const handleKeyDown = (event) => {
@@ -29,9 +29,9 @@ export default function SearchBar(props) {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         autoFocus
-        /* placeholder='_' */
-      />
-      <button onClick={handleSearch}>Agregar</button>
+        /* placeholder=': ...id...'  */
+              />
+      <button onClick={handleSearch}>Add</button>
     </div>
   );
 }

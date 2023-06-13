@@ -1,46 +1,62 @@
-
 .container {
     display: flex;
     align-items: center;
-    /* background-color: rgba(255, 255, 255, 0.226); */
+    justify-content: flex-end;
+    background-color: rgba(10, 10, 10, 0);
     padding: 10px;
     width: 450px;
     height: 40px;
-    margin-top: 7px;
-    margin-left: 150px;
+    margin-top: 10px;
+    border-radius: 2%;
     
-}
+  }
   
-.container input{
+  .container input {
     border-radius: 5px;
-    background-color: rgba(76, 252, 6, 0.514);    
+    background-color: rgba(76, 252, 6, 0.514);
     height: 40px;
     width: 400px;
-    margin-right: 10px; 
-    box-shadow:  1px 1px rgb(250, 248, 247);
+    margin-right: 5%;
+    box-shadow: 1px 1px rgb(250, 248, 247);
     font-size: 29px;
-    color:rgb(215, 252, 5);
-    font-family:fantasy;
-    text-shadow: 3px 2px rgb(32, 32, 32)
-    
-}
+    color: rgb(215, 252, 5);
+    font-family: fantasy;
+    text-shadow: 3px 2px rgb(32, 32, 32);
+    border: 1px solid rgb(10, 250, 2);
+  }
 
-.container button{
+
+  .container input:hover {
+    background-color: rgba(135, 245, 245, 0);
+    transition: background-color 0.5s;
+    box-shadow: 0px 0px 100px rgba(248, 248, 248, 0.76);
+    border: 1px solid rgb(182, 255, 13);
     border-radius: 5px;
+  }
+
+
+  
+  .container button {
+    border-radius: 5px;
+    margin-right: 25%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
     height: 40px;
     width: 100px;
     background-color: rgba(96, 241, 241, 0.473);
     color: bisque;
     padding: 5px;
-    transition: background-color 0.5s; 
+    transition: background-color 0.5s;
     font-size: 12px;
     border: 0;
-    box-shadow:  1px 1px rgb(220, 221, 223);  
-}
-
-.container button:hover {
-    background-color: rgb(67, 111, 153, 0.24);
-    transition: background-color 0.5s; 
-    box-shadow:  2px 2px rgb(220, 221, 223); 
-}
-
+    box-shadow: 1px 1px rgb(220, 221, 223);
+    border: 1px solid rgb(10, 250, 2);
+  }
+  
+  .container button:hover {
+    background-color: rgba(135, 245, 245, 0);
+    transition: background-color 0.5s;
+    box-shadow: 0px 0px 100px rgba(248, 248, 248, 0.76);
+    border: 1px solid rgb(182, 255, 13);
+    border-radius: 5px;
+  }
+  

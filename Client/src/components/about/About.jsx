@@ -18,11 +18,11 @@ export default function About(props) {
   return (
     <div className={styles.aboutMe}>
       <Link to={"/home"}>
-      <button className={styles.closeButton} onClick={handleClose}>X</button>
+          <button className={styles.closeButton} onClick={handleClose}>X</button>
       </Link>
-      <img src={fotoPedro} alt="Mi imagen" style={{ borderTopLeftRadius: '8px' }} />
-      <h2 className={styles.nombre}>Pedro Cavataio</h2>
-      <p className={styles.texto}>
+          <img src={fotoPedro} alt="Mi imagen" style={{ borderTopLeftRadius: '8px' }} />
+          <h2 className={styles.nombre}>Pedro Cavataio</h2>
+          <p className={styles.texto}>
         Tecnologías utilizadas, etc.  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque in minus unde rerum nam dolorem deserunt tempora ad reprehenderit, earum est aliquid odio illum quasi assumenda! Cum, quos. Amet, autem.
         
       </p>

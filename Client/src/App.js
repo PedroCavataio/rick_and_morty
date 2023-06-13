@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cards from "./components/Cards/Cards";
 import About from "./components/about/About";
@@ -16,42 +16,34 @@ function App() {
   const navigate = useNavigate();
 
   
-  async function onSearch(id) {
+  function onSearch(id) {
     const parsedId = parseInt(id);
     if (isNaN(parsedId) || parsedId < 1 || parsedId > 826) {
       alert('Elige del "1 al 826". En ese rango, encontrarás a todos los personajes conocidos de la serie!');
       return;
     }
-     
+
     try {
-      const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
-      if (data.name) {
-        const characterExists = characters.find((char) => char.id === data.id);
-        if (characterExists) {
-          window.alert("¡Este personaje ya está en la lista!");
+    axios
+      .get(`https://rickandmortyapi.com/api/character/${id}`) 
+      .then(({ data }) => {
+        if (data.name) {
+          const characterExists = characters.find(
+            (char) => char.id === data.id
+          );
+          if (characterExists) {
+            window.alert("¡Este personaje ya está en la lista!");
+          } else {
+            setCharacters((oldChars) => [...oldChars, data]);
+          }
         } else {
-          setCharacters((oldChars) => [...oldChars, data]);
+          window.alert("¡No hay personajes con este ID!");
         }
-      } else {
-        window.alert("¡No hay personajes con este ID!");
-      }
+      });
     } catch (error) {
       console.error('Error en la solicitud:', error.message);
     }
-  }  
-
-  async function login(userData) {
-  const { email, password } = userData;
-  const URL = 'http://localhost:3001/rickandmorty/login/';
-  try {
-    const { data } = await axios.get(URL + `?email=${email}&password=${password}`);
-    const { access } = data;
-    setAccess(access);
-    access && navigate('/home');
-  } catch (error) {
-    console.error('Error en el inicio de sesión:', error.message);
   }
-}
 
   function onClose(id) {
     setCharacters((oldChars) =>
@@ -59,14 +51,15 @@ function App() {
     );
   }
 
+
   function addRandomCharacter() {
     const maxId = 826;   
-    const id = Math.floor(Math.random() * maxId) + 1;
-    const isCharacterAdded = characters.some((char) => char.id === id);
+    const randomId = Math.floor(Math.random() * maxId) + 1;
+    const isCharacterAdded = characters.some((char) => char.id === randomId);
   
     if (!isCharacterAdded) {     
       axios
-        .get(`http://localhost:3001/rickandmorty/character/${id}`)
+        .get(`https://rickandmortyapi.com/api/character/${randomId}`)
         .then(({ data }) => {
           setCharacters((oldChars) => [...oldChars, data]);
         })
@@ -76,11 +69,23 @@ function App() {
     } else {     
       addRandomCharacter();
     }
-  }  
- 
+  }
+
+  
+  async function login(userData) {
+  const { email, password } = userData;
+  const URL = 'http://localhost:3001/rickandmorty/login/';
+  try {
+    const { data } = await axios.get(URL + `?email=${email}&password=${password}`);
+    const { access } = data;
+    setAccess(access);
+    access && navigate('/home');
+  } catch (error) {
+  }
+}
+
   return (
     <div className="App">
-     
       <Routes>
         <Route path="/" element={<Form onLogin={login} access={access} />} />
 
@@ -124,8 +129,7 @@ function App() {
                 setSearchValue={setSearchValue} 
               />
               <hr />
-              <Detail characters={characters}/>   
-              
+              <Detail />   
             </>
           }
         />
@@ -140,7 +144,7 @@ function App() {
                 setSearchValue={setSearchValue} 
               />
               <hr />
-              <Favorites onClose={onClose} />
+              <Favorites onClose={onClose} />  {/* olo cierra en home */}
             </>
           }
         />
@@ -152,3 +156,4 @@ function App() {
 }
 
 export default App;
+

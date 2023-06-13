@@ -11,8 +11,8 @@ export default function Detail() {
 
   useEffect(() => {
     axios(`http://localhost:3001/rickandmorty/character/${id}`)  
-    .then((response) => {
-        const data = response.data;    
+    .then(({data}) => {
+        /* const data = response.data;  */   
         console.log('Character data:', data);
         if (data.name) {
           setCharacter(data);
@@ -37,9 +37,8 @@ export default function Detail() {
   console.log('Character state:', character);
 
   const handleGoBack = () => {
-    // Navegar hacia atrás o a una ruta específica
-    navigate(-1); // Navegar hacia atrás en el historial
-    // navigate('/ruta-especifica'); 
+        navigate(-1); 
+    
   };
 
   return (

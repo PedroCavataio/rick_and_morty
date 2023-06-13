@@ -16,7 +16,7 @@ function Card(props) {
         break;
       }
     }
-  }, [props.myFavorites]);
+  }, [props.myFavorites]); 
 
   const handleToggleFav = () => {
     if (isFav) {
@@ -24,7 +24,7 @@ function Card(props) {
       props.removeFav(props.id);
     } else {
       setIsFav(true);
-      props.addFav(props);
+      props.addFav(props);   
     }
   };
 
@@ -78,3 +78,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
+

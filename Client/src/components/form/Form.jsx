@@ -15,24 +15,20 @@ const Form = ({ onLogin, access }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validar el formulario antes de enviar los datos
-    const validationErrors = validateForm();
+      const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
-      // No hay errores, enviar los datos
-      onLogin(userData);
-      // Restablecer los campos del formulario
-      setUserData({ email: '', password: '' });
+            onLogin(userData);
+          setUserData({ email: '', password: '' });
       setErrors({});
     } else {
-      // Hay errores, mostrarlos en el formulario
-      setErrors(validationErrors);
+        setErrors(validationErrors);
     }
   };
 
   const validateForm = () => {
     const errors = {};
 
-    // Validar el email
+    
     if (!userData.email) {
       errors.email = 'El email es requerido';
     } else if (!isValidEmail(userData.email)) {
@@ -41,25 +37,21 @@ const Form = ({ onLogin, access }) => {
       errors.email = 'El email no puede tener más de 35 caracteres';
     }
 
-    // Validar la contraseña
-    if (!userData.password) {
+     if (!userData.password) {
       errors.password = 'La contraseña es requerida';
     } else if (!hasNumber(userData.password)) {
       errors.password = 'La contraseña debe contener al menos un número';
     } else if (userData.password.length < 6 || userData.password.length > 10) {
       errors.password = 'La contraseña debe tener entre 6 y 10 caracteres';
     }
-
     return errors;
   };
 
   const isValidEmail = (email) => {
-    //  validación 
-    return true;
+     return true;
   };
 
   const hasNumber = (str) => {
-    // Verificar si la cadena contiene al menos un número
     return /\d/.test(str);
   };
 
@@ -75,6 +67,7 @@ const Form = ({ onLogin, access }) => {
           onChange={handleChange}
           className={styles["form-input"]}
           disabled={access}
+          autoFocus
         />
         {errors.email && <span className={styles["error-message"]}>{errors.email}</span>}
       </div>
@@ -88,6 +81,7 @@ const Form = ({ onLogin, access }) => {
           onChange={handleChange}
           className={styles["form-input"]}
           disabled={access}
+          autoFocus
         />
         {errors.password && <span className={styles["error-message"]}>{errors.password}</span>}
       </div>
