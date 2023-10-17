@@ -58,7 +58,7 @@ const Form = ({ onLogin, access }) => {
   return (
     <form className={styles["form-container"]} onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Email: (ejemplo@gmail.com)</label>
         <input
           type="email"
           id="email"
@@ -72,7 +72,7 @@ const Form = ({ onLogin, access }) => {
         {errors.email && <span className={styles["error-message"]}>{errors.email}</span>}
       </div>
       <div className="form-group">
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Password: (123456)</label>
         <input
           type="password"
           id="password"
