@@ -10,7 +10,8 @@ export default function Detail() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)  
+    /* axios(`http://localhost:3001/rickandmorty/character/${id}`)  */ 
+    axios(`http://https://rick-and-morty-api-8oiw.onrender.com/${id}`)  
     .then(({data}) => {
         /* const data = response.data;  */   
         console.log('Character data:', data);
