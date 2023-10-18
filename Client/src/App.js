@@ -75,7 +75,7 @@ function App() {
   async function login(userData) {
   const { email, password } = userData;
   /* const URL = 'http://localhost:3001/rickandmorty/login/'; */
-  const URL = 'https://rick-and-morty-api-8oiw.onrender.com/login';
+  const URL = 'https://randm-a459.onrender.com/login';
 
   try {
     const { data } = await axios.get(URL + `?email=${email}&password=${password}`);
