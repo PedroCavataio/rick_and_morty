@@ -146,7 +146,7 @@ function App() {
                 setSearchValue={setSearchValue} 
               />
               <hr />
-              <Favorites onClose={onClose} />  {/* olo cierra en home */}
+              <Favorites onClose={onClose} /> 
             </>
           }
         />
