@@ -11,7 +11,7 @@ export default function Detail() {
 
   useEffect(() => {
     /* axios(`http://localhost:3001/rickandmorty/character/${id}`)  */ 
-    axios(`https://rick-and-morty-src.onrender.com/rickandmorty/character/${id}`)  
+    /* axios(`https://rick-and-morty-src.onrender.com/rickandmorty/character/${id}`)   */
     .then(({data}) => {
         /* const data = response.data;  */   
         console.log('Character data:', data);
