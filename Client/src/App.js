@@ -75,7 +75,7 @@ function App() {
   async function login(userData) {
   const { email, password } = userData;
   /*  const URL = 'http://localhost:3001/rickandmorty/login/';  */
-  const URL = 'https://randm-55zh.onrender.com/rickandmorty/login/';
+  const URL = 'https://randm-3mhv.onrender.com/rickandmorty/login/';
  
  
 
