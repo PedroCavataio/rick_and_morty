@@ -11,7 +11,7 @@
 
   ReactDOM.render(
     <React.StrictMode>
-      <BrowserRouter basename='/rickandmorty'>
+      <BrowserRouter>
       <Provider store={store}>
         <App />
         </Provider>
