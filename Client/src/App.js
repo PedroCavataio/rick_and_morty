@@ -91,7 +91,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Form onLogin={login} access={access} />} />
+        <Route path="/rick_and_morty" element={<Form onLogin={login} access={access} />} />
 
         <Route
           path="/home"
